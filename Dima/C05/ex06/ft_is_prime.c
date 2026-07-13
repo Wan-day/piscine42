@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 18:21:46 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:14:15 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/13 19:19:21 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/13 19:24:08 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power);
+int	ft_is_prime(int nb);
 
-int	ft_iterative_power(int nb, int power)
+int	ft_is_prime(int nb)
 {
-	if (power < 0)
+	int	i;
+
+	if (nb <= 1)
 		return (0);
-	if (power == 0 && nb == 0)
-		return (1);
-	while (power != 1)
+	i = 2;
+	while (i <= nb / i)
 	{
-		nb = nb * nb;
-		power--;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
-	return (nb);
+	return (1);
 }
 /*
 #include <stdio.h>
 int	main(void)
 {
-	int	nb = 0;
-	int	power = 0;
-
-	printf("Number: %d\n", ft_iterative_power(nb, power));
+	printf("Result for 12345: %d\n", ft_is_prime(12345));
+	printf("Result for 2179(prime): %d\n", ft_is_prime(2179));
 	return (0);
 }
 */

@@ -6,13 +6,13 @@
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 18:36:38 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 18:45:12 by dboldino         ###   ########.fr       */
+/*   Updated: 2026/07/13 19:15:59 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_fibonacci(int index);
+int	ft_fibonacci(int index);
 
-int ft_fibonacci(int index)
+int	ft_fibonacci(int index)
 {
 	if (index < 0)
 		return (-1);

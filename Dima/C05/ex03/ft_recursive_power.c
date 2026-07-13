@@ -6,13 +6,13 @@
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 18:27:58 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 18:36:12 by dboldino         ###   ########.fr       */
+/*   Updated: 2026/07/13 19:15:45 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_recursive_power(int nb, int power);
 
-int ft_recursive_power(int nb, int power)
+int	ft_recursive_power(int nb, int power)
 {
 	if (power == 0)
 		return (0);
@@ -24,7 +24,7 @@ int ft_recursive_power(int nb, int power)
 	{
 		nb = nb * nb;
 		power --;
-		return(ft_recursive_power(nb, power));
+		return (ft_recursive_power(nb, power));
 	}
 }
 /*
