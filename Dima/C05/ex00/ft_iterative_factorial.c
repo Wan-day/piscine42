@@ -17,10 +17,10 @@ int	ft_iterative_factorial(int nb)
 	int	number;
 
 	number = nb;
-	if (nb < 1)
-	{
+	if (nb < 0)
 		return (0);
-	}
+	else if (nb == 0 || nb == 1)
+		return (1);
 	while (number != 1)
 	{
 		number--;
