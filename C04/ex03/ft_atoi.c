@@ -6,7 +6,7 @@
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:50:00 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 14:47:32 by dboldino         ###   ########.fr       */
+/*   Updated: 2026/07/13 16:31:31 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,21 @@ char	*find_num(char *str)
 {
 	while (str[0] != '\0')
 	{
-		if (str[0] == ' ' || str[0] == '+' || str[0] == '-')
-		{
+		if (str[0] == ' ' || (str[0] >= 9 && str[0] <= 13))
 			str++;
-		}
-		else if (str[0] >= '0' && str[0] <= '9')
-		{
-			return (str);
-		}
+		else if (str[0] == '-' || str[0] == '+')
+			break ;
 		else
-		{
 			return (0);
-		}
+	}
+	while (str[0] != '\0')
+	{
+		if (str[0] == '-' || str[0] == '+')
+			str++;
+		else if (str[0] >= '0' && str[0] <= '9')
+			return (str);
+		else
+			return (0);
 	}
 	return (0);
 }
