@@ -14,5 +14,17 @@ int ft_recursive_factorial(int nb);
 
 int ft_recursive_factorial(int nb)
 {
-	
+	if (nb > 1)
+		return(nb * ft_recursive_factorial(nb - 1));
+	else
+		return(nb);
 }
+/*
+#include <stdio.h>
+int main(void)
+{
+	int	num = 10;
+	printf("Factorial: %d\n", ft_recursive_factorial(num));
+	return (0);
+}
+*/
