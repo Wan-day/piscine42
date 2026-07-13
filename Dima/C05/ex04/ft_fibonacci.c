@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_power.c                               :+:      :+:    :+:   */
+/*   ft_fibonacci.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 18:21:46 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 18:26:19 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/13 18:36:38 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/13 18:45:12 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_power(int nb, int power);
+int ft_fibonacci(int index);
 
-int	ft_iterative_power(int nb, int power)
+int ft_fibonacci(int index)
 {
-	if (power < 0)
+	if (index < 0)
+		return (-1);
+	if (index == 0)
 		return (0);
-	if (power == 0 && nb == 0)
+	if (index == 1)
 		return (1);
-	while (power != 1)
-	{
-		nb = nb * nb;
-		power--;
-	}
-	return (nb);
+	return (ft_fibonacci(index - 1) + ft_fibonacci(index - 2));
 }
-
+/*
 #include <stdio.h>
+
 int	main(void)
 {
-	int	nb = 0;
-	int	power = 0;
-
-	printf("Number: %d\n", ft_iterative_power(nb, power));
+	printf("number: %d\n)", ft_fibonacci(13));
 	return (0);
 }
+*/
