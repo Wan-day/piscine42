@@ -6,12 +6,11 @@
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/13 13:50:00 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 16:31:31 by dboldino         ###   ########.fr       */
+/*   Updated: 2026/07/15 18:41:16 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	sign_calc(char *str);
-int	ft_size(char *str);
 int	ft_atoi(char *str);
 
 int	sign_calc(char *str)
@@ -53,18 +52,6 @@ char	*find_num(char *str)
 			return (0);
 	}
 	return (0);
-}
-
-int	ft_size(char *str)
-{
-	int	size;
-
-	size = 0;
-	while (str[size] >= '0' && str[size] <= '9')
-	{
-		size++;
-	}
-	return (size);
 }
 
 int	ft_atoi(char *str)
