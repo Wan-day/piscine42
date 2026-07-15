@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/14 17:46:20 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/15 16:35:44 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/15 16:36:12 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/15 16:52:35 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include <stdlib.h>
 
-int	ft_ultimate_range(int **range, int min, int max);
+char *ft_strjoin(int size, char **strs, char *sep);
 
-int	ft_ultimate_range(int **range, int min, int max)
+char *ft_strjoin(int size, char **strs, char *sep)
 {
-	int	*result;
+	char	*result;
 	int	i;
+	int	j;
 
+	result = malloc(((2 * size) + 1) * sizeof(char));
+	if (size == 0)
+	{
+		free(result);
+		return(result);
+	}
 	i = 0;
-	result = malloc(((max - min) + 1) * sizeof(int));
-	if (min >= max)
+	while (i < size)
 	{
-		result = NULL;
-		*range = result;
-		return (0);
-	}
-	if (result != NULL)
-	{
-		while (min < max)
+		while (*strs[j] != '\0')
 		{
-			result[i] = min;
-			i++;
-			min++;
+			result[i] = *strs[j];
+			j++;
 		}
-		*range = result;
-		return (i);
+		results[i + 1] = sep[0];
+		i++;
 	}
-	else
-		return (-1);
+
 }
