@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_print_program_name.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 15:50:12 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:13:55 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/14 15:34:43 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/14 15:35:39 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb);
+#include <unistd.h>
 
-int	ft_iterative_factorial(int nb)
+void	ft_putstr(char *str)
 {
-	int	number;
+	int	i;
 
-	number = nb;
-	if (nb < 0)
-		return (0);
-	else if (nb == 0 || nb == 1)
-		return (1);
-	while (number != 1)
+	i = 0;
+	while (str[i] != '\0')
 	{
-		number--;
-		nb = nb * number;
+		write (1, &str[i], 1);
+		i++;
 	}
-	return (nb);
+	write (1, "\n", 1);
 }
-/*
-#include <stdio.h>
-int main(void)
+
+int	main(int argc, char **argv)
 {
-	printf("factorial: %d\n", ft_iterative_factorial(0));
-	returna(0);
+	if (argc > 0)
+	{
+		ft_putstr(argv[0]);
+	}
+	return (0);
 }
-*/

@@ -1,38 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strncat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 15:50:12 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:13:55 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/07 16:57:36 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/08 15:54:02 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-int	ft_iterative_factorial(int nb);
-
-int	ft_iterative_factorial(int nb)
-{
-	int	number;
-
-	number = nb;
-	if (nb < 0)
-		return (0);
-	else if (nb == 0 || nb == 1)
-		return (1);
-	while (number != 1)
-	{
-		number--;
-		nb = nb * number;
-	}
-	return (nb);
-}
 /*
 #include <stdio.h>
+*/
+char	*ft_strncat(char *dest, char *src, unsigned int nb)
+{
+	unsigned int	d;
+	unsigned int	s;
+
+	d = 0;
+	s = 0;
+	while (dest[d] != '\0')
+	{
+		d++;
+	}
+	while (src[s] != '\0' && s < nb)
+	{
+		dest[d] = src[s];
+		d++;
+		s++;
+	}
+	dest[d] = '\0';
+	return (dest);
+}
+/*
 int main(void)
 {
-	printf("factorial: %d\n", ft_iterative_factorial(0));
-	returna(0);
+	char	src[10] = "First";
+	char	dest[10] = " Second";
+	unsigned int	nb = 3;
+
+	ft_strncat(dest, src, nb);
+
+	printf("Result: %s\nNumbers copied: %i\n", dest, nb);
 }
 */

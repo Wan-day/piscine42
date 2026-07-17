@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_is_prime.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 15:50:12 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:13:55 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/13 19:19:21 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/13 19:24:08 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb);
+int	ft_is_prime(int nb);
 
-int	ft_iterative_factorial(int nb)
+int	ft_is_prime(int nb)
 {
-	int	number;
+	int	i;
 
-	number = nb;
-	if (nb < 0)
+	if (nb <= 1)
 		return (0);
-	else if (nb == 0 || nb == 1)
-		return (1);
-	while (number != 1)
+	i = 2;
+	while (i <= nb / i)
 	{
-		number--;
-		nb = nb * number;
+		if (nb % i == 0)
+			return (0);
+		i++;
 	}
-	return (nb);
+	return (1);
 }
 /*
 #include <stdio.h>
-int main(void)
+int	main(void)
 {
-	printf("factorial: %d\n", ft_iterative_factorial(0));
-	returna(0);
+	printf("Result for 12345: %d\n", ft_is_prime(12345));
+	printf("Result for 2179(prime): %d\n", ft_is_prime(2179));
+	return (0);
 }
 */

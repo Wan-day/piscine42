@@ -1,38 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 15:50:12 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:13:55 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/15 16:36:12 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/15 16:52:35 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb);
+#include <stdlib.h>
 
-int	ft_iterative_factorial(int nb)
+char *ft_strjoin(int size, char **strs, char *sep);
+
+char *ft_strjoin(int size, char **strs, char *sep)
 {
-	int	number;
+	char	*result;
+	int	i;
+	int	j;
 
-	number = nb;
-	if (nb < 0)
-		return (0);
-	else if (nb == 0 || nb == 1)
-		return (1);
-	while (number != 1)
+	result = malloc(((2 * size) + 1) * sizeof(char));
+	if (size == 0)
 	{
-		number--;
-		nb = nb * number;
+		free(result);
+		return(result);
 	}
-	return (nb);
+	i = 0;
+	while (i < size)
+	{
+		while (*strs[j] != '\0')
+		{
+			result[i] = *strs[j];
+			j++;
+		}
+		results[i + 1] = sep[0];
+		i++;
+	}
+
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-	printf("factorial: %d\n", ft_iterative_factorial(0));
-	returna(0);
-}
-*/

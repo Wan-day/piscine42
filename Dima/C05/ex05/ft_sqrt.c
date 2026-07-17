@@ -1,38 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_sqrt.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 15:50:12 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:13:55 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/13 19:05:03 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/13 19:16:15 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_iterative_factorial(int nb);
+int	ft_sqrt(int nb);
 
-int	ft_iterative_factorial(int nb)
+int	ft_sqrt(int nb)
 {
-	int	number;
+	int	i;
+	int	result;
 
-	number = nb;
-	if (nb < 0)
-		return (0);
-	else if (nb == 0 || nb == 1)
-		return (1);
-	while (number != 1)
+	i = 1;
+	result = 0;
+	while (result <= nb)
 	{
-		number--;
-		nb = nb * number;
+		if (result < nb)
+		{
+			result = i * i;
+			i++;
+		}
+		else if (result == nb)
+			return (i - 1);
+		else
+			return (0);
 	}
-	return (nb);
+	return (0);
 }
 /*
 #include <stdio.h>
-int main(void)
+
+int	main(void)
 {
-	printf("factorial: %d\n", ft_iterative_factorial(0));
-	returna(0);
+	printf("Result of 16: %d\n", ft_sqrt(16));
+	printf("Result of 15: %d\n", ft_sqrt(15));
+	return (0);
 }
 */

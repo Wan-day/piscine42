@@ -1,38 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_iterative_factorial.c                           :+:      :+:    :+:   */
+/*   ft_ultimate_range.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/07/13 15:50:12 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/13 19:13:55 by dboldino         ###   ########.fr       */
+/*   Created: 2026/07/14 17:46:20 by dboldino          #+#    #+#             */
+/*   Updated: 2026/07/15 16:35:44 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include <stdlib.h>
 
-int	ft_iterative_factorial(int nb);
+int	ft_ultimate_range(int **range, int min, int max);
 
-int	ft_iterative_factorial(int nb)
+int	ft_ultimate_range(int **range, int min, int max)
 {
-	int	number;
+	int	*result;
+	int	i;
 
-	number = nb;
-	if (nb < 0)
-		return (0);
-	else if (nb == 0 || nb == 1)
-		return (1);
-	while (number != 1)
+	i = 0;
+	result = malloc(((max - min) + 1) * sizeof(int));
+	if (min >= max)
 	{
-		number--;
-		nb = nb * number;
+		result = NULL;
+		*range = result;
+		return (0);
 	}
-	return (nb);
+	if (result != NULL)
+	{
+		while (min < max)
+		{
+			result[i] = min;
+			i++;
+			min++;
+		}
+		*range = result;
+		return (i);
+	}
+	else
+		return (-1);
 }
-/*
-#include <stdio.h>
-int main(void)
-{
-	printf("factorial: %d\n", ft_iterative_factorial(0));
-	returna(0);
-}
-*/
