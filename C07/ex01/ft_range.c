@@ -6,7 +6,7 @@
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 17:11:28 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/14 17:45:16 by dboldino         ###   ########.fr       */
+/*   Updated: 2026/07/19 16:53:28 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,17 +21,16 @@ int	*ft_range(int min, int max)
 	int	i;
 
 	if (min >= max)
-		return(NULL);
-
+		return (NULL);
 	size = max - min;
 	result = malloc(size * sizeof(int));
 	if (!result)
-		return(NULL);
+		return (NULL);
 	i = 0;
 	while (i < size)
 	{
 		result[i] = min + i;
 		i++;
 	}
-	return(result);
+	return (result);
 }

@@ -6,7 +6,7 @@
 /*   By: dboldino <dboldino@student.42prague.fr>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/07/14 16:23:25 by dboldino          #+#    #+#             */
-/*   Updated: 2026/07/14 17:00:07 by dboldino         ###   ########.fr       */
+/*   Updated: 2026/07/19 16:50:00 by dboldino         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int	size_of(char *str)
 char	*ft_strdup(char *src)
 {
 	char	*dest;
-	int	i;
+	int		i;
 
 	i = 0;
 	dest = malloc((size_of(src) + 1) * sizeof(char));
