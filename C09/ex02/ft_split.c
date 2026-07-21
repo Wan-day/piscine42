@@ -10,11 +10,29 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+
 #include <unistd.h>
 
-char **ft_split(char *str, char *charset);
+int	is_separator(char str, char *sep);
+char **ft_split(char *str, char *charset);\
+
+int	is_separator(char str, char *sep)
+{
+	int	i;
+	
+	i = 0;
+	while	(sep[i] != '\0')
+	{
+		if (str == sep[i])
+			return (i);
+		i++;
+	}
+	return (0);
+}
 
 char **ft_split(char *str, char *charset)
 {
-
+	char	**result;
+	
+	
 }
