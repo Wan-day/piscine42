@@ -36,7 +36,7 @@ void error_check(int param)
 
 void write_file(int fd)
 {
-	char	buf[1024];
+	char	buf[32];
 	ssize_t bytesRead;
 
 	while ((bytesRead = read(fd, buf, sizeof(buf))) > 0)
