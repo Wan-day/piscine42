@@ -24,14 +24,13 @@ void print_error(int err)
 	}
 }
 
-void print_file(int fd, char *buf, int size)
+void print_file(char *buf, ssize_t size)
 {
 	while (buf[size] != '\0')
 	{
 		write(1, &buf[size], 1);
 		size++;
 	}
-	close(fd);
 }
 
 int	ft_strcmp(char *st1, char *st2)
