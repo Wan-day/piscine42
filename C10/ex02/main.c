@@ -1,8 +1,4 @@
-
-#include <fcntl.h>
-#include <unistd.h>
-#include <libgen.h>
-#include <stdlib.h>
+#include "utils.h"
 
 int file_size(char *str)
 {
@@ -19,68 +15,102 @@ int file_size(char *str)
 	return size;
 }
 
-int	ft_strcmp(char *st1, char *st2)
+void ft_tail(t_words file)
 {
-	int	i;
+	char	buf;
+	int		fd;
+	int		count;
 
-	i = 0;
-	while (st1[i] && st2[i])
+	fd = open(file.file_name, O_RDONLY);
+	if (fd == -1)
+		print_error(errno); // NOT IMPLEMENTED YET
+	else
 	{
-		if (st1[i] != st2[i])
-			return (st1[i] - st2[i]);
-		i++;
+		buf = malloc(file.file_size + 1);
+		if (read(fd, buf, file.file_size) > -1)
+		{
+			buf[file.file_size] = '\0';
+			while (--file.file_size > 0)
+			{
+				if (buf[file.file_size] == '\n')
+					count++;
+				if (count == 10)
+					break;
+			}
+			print_file(fd, buf, file.file_size);
+		}
+		else
+			print_error(errno); // NOT IMPLEMENTED YET
 	}
-	return (st1[i] - st2[i]);
 }
 
-void	ft_tail(char *fn, int size)
+void c_tail(t_words file)
 {
-	char	*buf;
-	int		count;
+	char	buf;
 	int		fd;
 
-	fd = open(fn, O_RDONLY);
-	buf = malloc((size + 1) * sizeof(char));
-	read(fd, buf, size);
-	count = 0;
-	while (size-- > 1)
+	fd = open(file.file_name, O_RDONLY);
+	if (fd == -1)
+		print_error(errno); // NOT IMPLEMENTED YET
+	else
 	{
-		if (buf[size] == '\n')
-			count++;
-		if (count == 11)
+		buf = malloc(file.file_size + 1);
+		if (read(fd, buf, file.file_size) > -1)
 		{
-			size++;
-			break;
+			file.file_size -= file.bytes_read;
+			buf[file.file_size] = '\0';
+			print_file(fd, buf, file.file_size;
+		}
+		else
+			print_error(errno); // NOT IMPLEMENTED YET
+	}
+}
+
+void tail_main(inr argc, cahr **argv, int i, bool has_c)
+{
+	t_words	file;
+
+	if (has_c == true && ft_atoi(arev[2]) < 1)
+		print_error(ERR_MISSING_C_ARG); // NOT IMPLEMENTED YET
+	else if (has_c == true)
+	{
+		file.bytes_read = ft_atoi(argv[2]);
+		while (i++ < argc)
+		{
+			file.file_name = argv[i];
+			file.file_size = file_size(argv[i]);
+			tail_c(file);
 		}
 	}
-	while (buf[size] != '\0')
+	else
 	{
-		write(1, &buf[size], 1);
-		size++;
+		file.bytes_read = 0;
+		while (i++ < argc)
+		{
+			file.file_name = argv[i];
+			file.file_size = file_size(argv[i]);
+			ft_tail(file);
+		}
 	}
 }
 
 int main(int argc, char **argv)
 {
-	int	i;
-	int	size;
+	int	start;
 
-	i = 0;
 	if (argc < 2)
 		return 0;
 	else
 	{
-		if (ft_strcmp(argv[1], "-c") == 0)
+		if (strcmp(argv[1], "-c") == 0)
 		{
-			return 0; //do_the_c_thing();
+			start = 0;
+			tail_main(argc, argv, start, true);
 		}
 		else
 		{
-			while (++i < argc)
-			{
-				size = file_size(argv[i]);
-				ft_tail(argv[i], size);
-			}
+			start = 2;
+			tail_main(argc, argv, 2, false);
 		}
 	}
 	return 0;
